@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="js/q.js"></script>
+    <script type="text/javascript" src="js/Blob.js"></script>
+    <script type="text/javascript" src="js/LargeLocalStorage.js"></script>
+    <script type="text/javascript" src="js/FileSaver.js"></script>
+    <script type="text/javascript" src="js/fileStorage.js"></script>
+    <script type="text/javascript" src="js/offline.min.js"></script>
+    <script type="text/javascript">
+        Offline.options = {
+            checkOnLoad: true,
+            interceptRequests: true,
+            requests: false
+        };
+        Offline.on("confirmed-up", function () {
+            $(".offline-ui-content").html("Online");
+            online = true;
+        }, null);
+        Offline.on("confirmed-down", function () {
+            $(".offline-ui-content").html("Offline");
+            online = false;
+        }, null);
+    </script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <link rel="stylesheet" href="css/offline-theme-default-indicator.css"/>
+    <title>File API tests</title>
+</head>
+<body>
+<h2>File API sample</h2>
+
+<div>
+    <button id="synchronize">Synchronize</button>
+    <ul id="fileContainer">
+
+    </ul>
+</div>
+</body>
+</html>
